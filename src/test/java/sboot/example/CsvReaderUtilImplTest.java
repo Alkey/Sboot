@@ -30,7 +30,7 @@ public class CsvReaderUtilImplTest {
     @Test
     public void readFileWithCorrectPath() throws FileNotFoundException {
         List<String[]> result;
-        File file = ResourceUtils.getFile("classpath:test.csv");
+        File file = ResourceUtils.getFile("classpath:test_csv_reader.csv");
         CsvReaderUtil reader = new CsvReaderUtilImpl(new CSVReader(new FileReader(file)));
         result = reader.read();
         assertEquals(10, result.get(0).length);
@@ -45,7 +45,7 @@ public class CsvReaderUtilImplTest {
 
     @Test
     public void chekForCorrectReadFile() throws FileNotFoundException {
-        File file = ResourceUtils.getFile("classpath:test.csv");
+        File file = ResourceUtils.getFile("classpath:test_csv_reader.csv");
         CsvReaderUtil reader = new CsvReaderUtilImpl(new CSVReader(new FileReader(file)));
         List<String[]> read = reader.read();
         for (int i = 0; i < read.size(); i++) {
