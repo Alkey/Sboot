@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.ResourceUtils;
 import sboot.example.dto.ReviewDto;
@@ -13,10 +13,10 @@ import sboot.example.util.CsvReaderUtilImpl;
 import sboot.example.util.ReviewDtoMapper;
 
 public class CsvParserServiceTest {
-    private CsvParserService service;
+    private static CsvParserService service;
 
-    @BeforeEach
-    public void init() {
+    @BeforeAll
+    public static void init() {
         service = new CsvParserService(new CsvReaderUtilImpl(), new ReviewDtoMapper());
     }
 

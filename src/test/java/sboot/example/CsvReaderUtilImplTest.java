@@ -6,7 +6,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.ResourceUtils;
 import sboot.example.util.CsvReaderUtil;
@@ -14,11 +14,11 @@ import sboot.example.util.CsvReaderUtilImpl;
 
 public class CsvReaderUtilImplTest {
     private static final String PATH = "classpath:test_csv_reader.csv";
-    private CsvReaderUtil reader;
+    private static CsvReaderUtil reader;
 
-    @BeforeEach
-    public void init() {
-        this.reader = new CsvReaderUtilImpl();
+    @BeforeAll
+    public static void init() {
+        reader = new CsvReaderUtilImpl();
     }
 
     @Test
