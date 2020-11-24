@@ -4,11 +4,13 @@ import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import sboot.example.dto.ReviewDto;
+import sboot.example.mapper.ReviewDtoMapper;
 import sboot.example.util.CsvReaderUtil;
-import sboot.example.util.ReviewDtoMapper;
 
 @RequiredArgsConstructor
+@Service
 public class CsvParserService {
     private final CsvReaderUtil readerUtil;
     private final ReviewDtoMapper mapper;

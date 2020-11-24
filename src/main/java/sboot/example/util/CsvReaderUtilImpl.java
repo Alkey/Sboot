@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CsvReaderUtilImpl implements CsvReaderUtil {
     @Override
     public List<String[]> read(File file) {

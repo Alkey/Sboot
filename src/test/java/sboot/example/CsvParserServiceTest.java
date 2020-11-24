@@ -10,7 +10,7 @@ import org.springframework.util.ResourceUtils;
 import sboot.example.dto.ReviewDto;
 import sboot.example.service.CsvParserService;
 import sboot.example.util.CsvReaderUtilImpl;
-import sboot.example.util.ReviewDtoMapper;
+import sboot.example.mapper.ReviewDtoMapper;
 
 public class CsvParserServiceTest {
     private static CsvParserService service;

@@ -1,7 +1,9 @@
-package sboot.example.util;
+package sboot.example.mapper;
 
+import org.springframework.stereotype.Component;
 import sboot.example.dto.ReviewDto;
 
+@Component
 public class ReviewDtoMapper {
     private static final int PRODUCT_ID = 1;
     private static final int USER_ID = 2;
