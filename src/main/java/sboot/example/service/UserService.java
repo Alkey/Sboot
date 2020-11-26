@@ -1,5 +1,6 @@
 package sboot.example.service;
 
+import java.util.List;
 import org.springframework.stereotype.Service;
 import sboot.example.model.User;
 
@@ -10,4 +11,6 @@ public interface UserService {
     User save(User user);
 
     User findByAmazonUserId(String id);
+
+    List<User> saveAll(List<User> users);
 }

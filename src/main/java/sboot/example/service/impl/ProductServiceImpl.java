@@ -1,5 +1,6 @@
 package sboot.example.service.impl;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sboot.example.dao.ProductDao;
@@ -19,5 +20,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product findByAmazonId(String id) {
         return dao.findByAmazonId(id);
+    }
+
+    @Override
+    public List<Product> saveAll(List<Product> products) {
+        return dao.saveAll(products);
     }
 }
