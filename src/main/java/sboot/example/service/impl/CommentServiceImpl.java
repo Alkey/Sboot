@@ -26,4 +26,9 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> saveAll(List<Comment> comments) {
         return dao.saveAll(comments);
     }
+
+    @Override
+    public List<Comment> getAll() {
+        return dao.findAll();
+    }
 }

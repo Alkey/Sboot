@@ -1,6 +1,5 @@
 package sboot.example.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,11 +9,11 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "words")
+public class Word {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true)
-    private String amazonId;
+    private String word;
+    private Long quantity;
 }

@@ -9,4 +9,6 @@ public interface ProductService {
     Product findByAmazonId(String id);
 
     List<Product> saveAll(List<Product> products);
+
+    List<Product> getMostCommentedProducts();
 }

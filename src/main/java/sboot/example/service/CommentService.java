@@ -9,4 +9,6 @@ public interface CommentService {
     Comment findById(Long id);
 
     List<Comment> saveAll(List<Comment> comments);
+
+    List<Comment> getAll();
 }

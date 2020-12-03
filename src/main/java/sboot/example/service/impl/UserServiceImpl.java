@@ -31,4 +31,9 @@ public class UserServiceImpl implements UserService {
     public List<User> saveAll(List<User> users) {
         return dao.saveAll(users);
     }
+
+    @Override
+    public List<User> getMostActiveUsers() {
+        return dao.getMostActiveUsers();
+    }
 }

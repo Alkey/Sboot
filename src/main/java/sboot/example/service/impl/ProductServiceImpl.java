@@ -26,4 +26,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> saveAll(List<Product> products) {
         return dao.saveAll(products);
     }
+
+    @Override
+    public List<Product> getMostCommentedProducts() {
+        return dao.getMostCommentedProducts();
+    }
 }

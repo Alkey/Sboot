@@ -13,4 +13,6 @@ public interface UserService {
     User findByAmazonUserId(String id);
 
     List<User> saveAll(List<User> users);
+
+    List<User> getMostActiveUsers();
 }

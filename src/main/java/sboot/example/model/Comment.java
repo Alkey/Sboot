@@ -1,6 +1,7 @@
 package sboot.example.model;
 
 import java.time.LocalDateTime;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,5 +26,6 @@ public class Comment {
     private Long score;
     private LocalDateTime time;
     private String summary;
+    @Column(length = 4000)
     private String text;
 }
