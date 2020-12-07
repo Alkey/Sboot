@@ -8,9 +8,10 @@ import sboot.example.model.User;
 
 @Repository
 public interface UserDao extends JpaRepository<User, Long> {
-    User findByAmazonUserId(String id);
+    User findByAmazonId(String id);
 
-    @Query(value = "select User from Comment c "
-            + "order by c.helpfulnessNumerator desc limit 1000", nativeQuery = true)
+    @Query(value = "SELECT users.id, amazon_id, users.name, users.password FROM comments "
+            + "join USERS on comments.user_id=users.id "
+            + "order by helpfulness_numerator DESC LIMIT 1000", nativeQuery = true)
     List<User> getMostActiveUsers();
 }

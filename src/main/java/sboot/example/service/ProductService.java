@@ -1,6 +1,7 @@
 package sboot.example.service;
 
 import java.util.List;
+import sboot.example.dto.ProductResponseDto;
 import sboot.example.model.Product;
 
 public interface ProductService {
@@ -10,5 +11,5 @@ public interface ProductService {
 
     List<Product> saveAll(List<Product> products);
 
-    List<Product> getMostCommentedProducts();
+    List<ProductResponseDto> getMostCommentedProducts();
 }

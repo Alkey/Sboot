@@ -10,7 +10,7 @@ public class UserMapper {
 
     public User getUser(ReviewDto dto) {
         User user = new User();
-        user.setAmazonUserId(dto.getAmazonUserId());
+        user.setAmazonId(dto.getAmazonUserId());
         user.setName(dto.getAmazonProfileName());
         return user;
     }
@@ -18,7 +18,7 @@ public class UserMapper {
     public UserResponseDto getResponseDto(User user) {
         UserResponseDto dto = new UserResponseDto();
         dto.setId(user.getId());
-        dto.setAmazonUserId(user.getAmazonUserId());
+        dto.setAmazonId(user.getAmazonId());
         dto.setName(user.getName());
         return dto;
     }

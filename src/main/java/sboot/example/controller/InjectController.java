@@ -26,8 +26,8 @@ public class InjectController {
         roleService.save(Role.of("USER"));
         List<ReviewDto> dtos = csvParserService
                 .parseFile(ResourceUtils.getFile(PATH));
-        injectDataService.saveProductsToDbFromReviewDto(dtos);
         injectDataService.saveUsersToDbFromReviewDto(dtos);
+        injectDataService.saveProductsToDbFromReviewDto(dtos);
         injectDataService.saveCommentsToDbFromReviewDto(dtos);
         injectDataService.saveWordsToDbFromReviewDto(dtos);
     }

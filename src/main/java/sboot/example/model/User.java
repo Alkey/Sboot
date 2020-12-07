@@ -18,7 +18,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
-    private String amazonUserId;
+    private String amazonId;
     private String name;
     private String password;
     @ManyToMany

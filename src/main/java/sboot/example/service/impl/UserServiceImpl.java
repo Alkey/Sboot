@@ -1,9 +1,12 @@
 package sboot.example.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sboot.example.dao.UserDao;
+import sboot.example.dto.UserResponseDto;
+import sboot.example.mapper.UserMapper;
 import sboot.example.model.User;
 import sboot.example.service.UserService;
 
@@ -11,6 +14,7 @@ import sboot.example.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
     private final UserDao dao;
+    private final UserMapper userMapper;
 
     @Override
     public User findById(Long id) {
@@ -24,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByAmazonUserId(String id) {
-        return dao.findByAmazonUserId(id);
+        return dao.findByAmazonId(id);
     }
 
     @Override
@@ -33,7 +37,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getMostActiveUsers() {
-        return dao.getMostActiveUsers();
+    public List<UserResponseDto> getMostActiveUsers() {
+        return dao.getMostActiveUsers()
+                .stream()
+                .map(userMapper::getResponseDto)
+                .collect(Collectors.toList());
     }
 }

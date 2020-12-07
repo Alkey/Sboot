@@ -36,6 +36,8 @@ public class InjectDataService {
         Role role = roleService.findByName(DEFAULT_ROLE);
         return userService.saveAll(dtos.stream()
                 .map(userMapper::getUser)
+                .collect(Collectors.toSet())
+                .stream()
                 .peek(user -> {
                     user.setPassword(DEFAULT_PASSWORD);
                     user.setRoles(Set.of(role));
@@ -46,6 +48,7 @@ public class InjectDataService {
     public List<Product> saveProductsToDbFromReviewDto(List<ReviewDto> dtos) {
         return productService.saveAll(dtos.stream()
                 .map(productMapper::getProduct)
+                .distinct()
                 .collect(Collectors.toList()));
     }
 

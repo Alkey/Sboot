@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Data
 @Entity
@@ -18,14 +20,16 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
+    @Cascade(CascadeType.SAVE_UPDATE)
     private User user;
     @ManyToOne
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Product product;
     private Long helpfulnessNumerator;
     private Long helpfulnessDenominator;
     private Long score;
     private LocalDateTime time;
     private String summary;
-    @Column(length = 4000)
+    @Column(length = 10000)
     private String text;
 }

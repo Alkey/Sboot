@@ -10,7 +10,8 @@ import sboot.example.model.Product;
 public interface ProductDao extends JpaRepository<Product, Long> {
     Product findByAmazonId(String id);
 
-    @Query(value = "select c.product from comments c group by c.product "
-            + "order by count(c.product) desc limit 1000", nativeQuery = true)
+    @Query(value = "SELECT products.id, products.amazon_id, count(*) as quantity "
+            + "FROM comments join products on comments.product_id = products.id "
+            + "group by products.amazon_id order by quantity DESC LIMIT 1000", nativeQuery = true)
     List<Product> getMostCommentedProducts();
 }

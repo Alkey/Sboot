@@ -1,9 +1,12 @@
 package sboot.example.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sboot.example.dao.ProductDao;
+import sboot.example.dto.ProductResponseDto;
+import sboot.example.mapper.ProductMapper;
 import sboot.example.model.Product;
 import sboot.example.service.ProductService;
 
@@ -11,6 +14,7 @@ import sboot.example.service.ProductService;
 @Service
 public class ProductServiceImpl implements ProductService {
     private final ProductDao dao;
+    private final ProductMapper mapper;
 
     @Override
     public Product save(Product product) {
@@ -28,7 +32,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getMostCommentedProducts() {
-        return dao.getMostCommentedProducts();
+    public List<ProductResponseDto> getMostCommentedProducts() {
+        return dao.getMostCommentedProducts().stream()
+                .map(mapper::getResponseDto)
+                .collect(Collectors.toList());
     }
 }

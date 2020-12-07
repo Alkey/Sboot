@@ -2,6 +2,7 @@ package sboot.example.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
+import sboot.example.dto.UserResponseDto;
 import sboot.example.model.User;
 
 @Service
@@ -14,5 +15,5 @@ public interface UserService {
 
     List<User> saveAll(List<User> users);
 
-    List<User> getMostActiveUsers();
+    List<UserResponseDto> getMostActiveUsers();
 }
