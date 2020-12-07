@@ -1,6 +1,7 @@
 package sboot.example.model;
 
 import java.util.Set;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String amazonUserId;
+    @Column(unique = true)
+    private String amazonId;
     private String name;
     private String password;
     @ManyToMany
