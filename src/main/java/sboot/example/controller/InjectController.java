@@ -2,17 +2,19 @@ package sboot.example.controller;
 
 import java.io.FileNotFoundException;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.ResourceUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import sboot.example.dto.ReviewDto;
 import sboot.example.model.Role;
 import sboot.example.service.CsvParserService;
 import sboot.example.service.InjectDataService;
 import sboot.example.service.RoleService;
 
-@Component
+@Controller
+@RequestMapping("/inject")
 @RequiredArgsConstructor
 public class InjectController {
     private static final String PATH = "classpath:reviews_file.csv";
@@ -20,7 +22,7 @@ public class InjectController {
     private final InjectDataService injectDataService;
     private final RoleService roleService;
 
-    @PostConstruct
+    @GetMapping
     public void injectDataToDb() throws FileNotFoundException {
         roleService.save(Role.of("ADMIN"));
         roleService.save(Role.of("USER"));
